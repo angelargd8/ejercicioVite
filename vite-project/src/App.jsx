@@ -1,39 +1,36 @@
-//import { useState } from 'react'
+import { useState } from 'react'
 import './App.css'
-import Login from './componentes/login.jsx'
-import Home from './componentes/home.jsx'
 
-import { useEffect, useState } from 'react'
+import Router from './componentes/router.jsx'
+
+//import { useEffect, useState } from 'react'
 
 
 function App() {
   const [rutaActual, setRutaActual] = useState("app")
-
-  useEffect(() =>{ //nor permite detectar un cambio
-    console.log('url actual:', window.location.pathname);
-    setRutaActual(window.location.pathname);
-  },[])
+  const handleNavigation = (ruta) => {
+    setRutaActual(ruta) //
+  }
+ 
 
   return (
     <>
       <div className="contenedor">
-        <nav>
+        <nav >
           <ul>
             <li>
-              <a href="/">Home</a>
+              <a href="/" onClick={(e) => {e.preventDefault(); handleNavigation('/home')}}> Home</a>
             </li>
             <li>
-              <a href="/login">Login</a>
+              <a href="/login" onClick={(e) => {e.preventDefault(); handleNavigation('/login')}}>Login</a>
             </li>
-            <li>
-              <a href="/registro">Registro</a>
-            </li>
+            
           </ul>
         </nav>
         <div className="contenedor-rutas">
-          {rutaActual === '/' && <Home />}
-          {rutaActual === '/login' && <Login />}
-          {rutaActual === '/registro' && <h1>Registro</h1>}
+        <Router ruta={rutaActual} setRutaActual={setRutaActual} />
+         
+          
         </div>
       </div>
     </>

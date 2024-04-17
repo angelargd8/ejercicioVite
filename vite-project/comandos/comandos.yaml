@@ -17,3 +17,12 @@ Done. Now run:
   cd vite-project
   npm install
   npm run dev
+
+//instalacion de boostrap
+npm install bootstrap
+-alternativa
+yarn add bootstrap
+
+s
+// Put any other imports below so that CSS from your
+// components takes precedence over default styles.

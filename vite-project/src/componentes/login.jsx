@@ -1,4 +1,9 @@
-function Login(){
+
+
+function Login({setRutaActual}){
+    
+    
+
     return (
         <>
           <div className="formulario">
@@ -12,12 +17,13 @@ function Login(){
                 <input type="password" id="password" name="password" />
                 <br></br>
                 <div className="boton">
-                  <button >
+                  <button onClick={()=>{setRutaActual("/home")}}>
                     iniciar sesion
                   </button>
                 </div>
                 
               </div>
+              
         
           </div>
         </>
